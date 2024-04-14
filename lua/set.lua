@@ -1,10 +1,18 @@
 -- mapppings
 vim.g.mapleader = " "
-vim.cmd("set expandtab")
-vim.cmd("set tabstop=4")
-vim.cmd("set softtabstop=4")
-vim.cmd("set shiftwidth=4")
+vim.opt.expandtab = true
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
 
+vim.o.background = "dark"
+
+vim.opt.laststatus = 0
+-- ruler
+
+vim.opt.clipboard = "unnamedplus"
+
+-- Indenting
 vim.opt.smartindent = false
 vim.opt.scrolloff = 20
 vim.opt.nu = true
@@ -23,6 +31,10 @@ vim.keymap.set("n", "<leader>p", '"_dP')
 vim.keymap.set("n", "<leader>y", '"+y')
 vim.keymap.set("n", "<leader>Y", '"+Y')
 vim.keymap.set("n", "<C-\\>", ":LazyGit <CR>")
+
+-- save file
+vim.keymap.set("n", "<C-s>", "<cmd> w <CR>")
+vim.keymap.set("n", "<C-c>", "<cmd> %y+ <CR>")
 
 -- execution
 vim.keymap.set("n", "<leader>p", '"_dP')

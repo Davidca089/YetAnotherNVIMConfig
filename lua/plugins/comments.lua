@@ -1,15 +1,14 @@
 return {
-    'numToStr/Comment.nvim',
+    "numToStr/Comment.nvim",
     lazy = false,
     config = function()
-        require('Comment').setup({
-            -- toggler = {
-            --     line = '<Tab>'
-            -- },
-            -- opleader = {
-            --     line = '<Tab>'
-            -- }
+        require("Comment").setup({
+            toggler = {
+                line = "<Tab>",
+            },
+            opleader = {
+                line = "<Tab>",
+            },
         })
-    end
+    end,
 }
-
