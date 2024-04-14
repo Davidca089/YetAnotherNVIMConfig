@@ -86,7 +86,7 @@ return {
             -- theme picker
             vim.keymap.set(
                 "n",
-                "<leader>th",
+                "<F5>",
                 ":Telescope themes<CR>",
                 { noremap = true, silent = true, desc = "Theme Switcher" }
             )

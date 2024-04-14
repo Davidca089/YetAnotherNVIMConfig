@@ -12,6 +12,7 @@ return {
 			api_key_cmd = "pass show openai_key",
 		})
 	end,
+
 	vim.keymap.set("n", "<F12>", ":ChatGPT<CR>"),
 	vim.keymap.set("n", "<F11>t", ":ChatGPTRun add_tests<CR>"),
 	vim.keymap.set("n", "<F11>b", ":ChatGPTRun fix_bugs<CR>"),
