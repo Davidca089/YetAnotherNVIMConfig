@@ -38,3 +38,6 @@ vim.keymap.set("n", "<C-c>", "<cmd> %y+ <CR>")
 
 -- execution
 vim.keymap.set("n", "<leader>p", '"_dP')
+
+-- global
+vim.keymap.set({ "n", "v", "i" }, "<F3>", ":!t<CR>")
