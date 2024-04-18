@@ -19,6 +19,23 @@ require("set")
 -- lazy
 require("lazy").setup("plugins")
 
+-- set highlight groups
+local group = vim.api.nvim_create_augroup("Highlighting", { clear = true })
+vim.api.nvim_create_autocmd("ColorScheme", {
+    pattern = "*",
+    group = group,
+    callback = function()
+        local purp = "#5c1b66"
+        local grey = "#2d3149"
+        -- general
+        vim.api.nvim_set_hl(0, "IncSearch", { fg = "#ffffff", bg = grey })
+        vim.api.nvim_set_hl(0, "Search", { fg = "#ffffff", bg = grey })
+        -- flash
+        vim.api.nvim_set_hl(0, "FlashCursor", { fg = "#ffffff", bg = grey })
+        vim.api.nvim_set_hl(0, "FlashLabel", { fg = "#ffffff", bg = purp })
+    end,
+})
+
 -- colorscheme stuff
 require("colorscheme")
 

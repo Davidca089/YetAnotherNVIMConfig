@@ -1,4 +1,5 @@
 -- mapppings
+vim.cmd("set noswapfile")
 vim.g.mapleader = " "
 vim.opt.expandtab = true
 vim.opt.tabstop = 4
@@ -40,4 +41,4 @@ vim.keymap.set("n", "<C-c>", "<cmd> %y+ <CR>")
 vim.keymap.set("n", "<leader>p", '"_dP')
 
 -- global
-vim.keymap.set({ "n", "v", "i" }, "<F3>", ":!t<CR>")
+vim.keymap.set({ "n", "v", "i" }, "<C-t>", ":silent !t<CR>")
