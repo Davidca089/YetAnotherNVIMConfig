@@ -47,3 +47,31 @@ vim.api.nvim_create_autocmd("VimEnter", {
         end
     end,
 })
+
+-- interact with TMUX for filename
+local tmux_namer = vim.api.nvim_create_augroup("TmuxNamer", { clear = true })
+vim.api.nvim_create_autocmd("FocusLost", {
+    pattern = "*",
+    group = tmux_namer,
+    callback = function()
+        -- update env variable storing name in file
+        local file = io.open("/tmp/tmux_namer", "w")
+        local str = ";)"
+        io.output(file)
+        io.write(str)
+        io.close(file)
+    end,
+})
+
+vim.api.nvim_create_autocmd({ "BufWinEnter", "FocusGained" }, {
+    pattern = "*",
+    group = tmux_namer,
+    callback = function()
+        -- update env variable storing name in file
+        local file = io.open("/tmp/tmux_namer", "w")
+        local str = string.sub(string.gsub(vim.api.nvim_buf_get_name(0), vim.loop.cwd(), ""), 2)
+        io.output(file)
+        io.write(str)
+        io.close(file)
+    end,
+})

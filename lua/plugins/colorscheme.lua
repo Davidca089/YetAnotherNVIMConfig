@@ -10,9 +10,12 @@ return {
             require("tokyonight").setup({
                 -- use the night style
                 style = "night",
-                -- disable italic for functions
+                -- disable italic
                 styles = {
                     functions = {},
+                    variables = {},
+                    comments = { italic = false },
+                    keywords = { italic = false },
                 },
                 sidebars = { "qf", "vista_kind", "terminal", "packer" },
                 -- Change the "hint" color to the "orange" color, and make the "error" color bright red

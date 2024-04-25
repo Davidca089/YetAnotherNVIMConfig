@@ -22,11 +22,18 @@ return {
 		end,
 	},
 	{
+		"folke/neodev.nvim",
+		opts = {},
+	},
+	{
 		"neovim/nvim-lspconfig",
+		-- neovim develop
+		dependecies = { "folke/neodev.nvim", opts = {} },
 		lazy = false,
 		config = function()
 			-- asks the lsp server to send back some extra information basically
-			-- thats why we pass it to every server.
+			-- thats why -- IMPORTANT: make sure to setup neodev BEFORE lspconfig
+			require("neodev").setup({})
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 			local lspconfig = require("lspconfig")
 
@@ -42,6 +49,10 @@ return {
 			})
 			lspconfig.clangd.setup({
 				capabilities = capabilities,
+				cmd = {
+					"clangd",
+					"--offset-encoding=utf-16",
+				},
 			})
 			lspconfig.ocamllsp.setup({
 				capabilities = capabilities,
