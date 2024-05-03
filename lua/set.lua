@@ -55,3 +55,4 @@ vim.keymap.set("n", "<leader>p", '"_dP')
 -- global
 -- tmux session stuff
 vim.keymap.set({ "n", "v", "i" }, "<C-t>", ":silent !t<CR>")
+vim.keymap.set("n", "<leader>js", ":!node %<CR>")
